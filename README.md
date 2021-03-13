@@ -1,2 +1,2 @@
 # Grade Transfer
-🚌 A school ![EAST]() project created to make grading faster for teachers.
+🚌 A school [EAST](http://eastinitiative.org) project created to make grading faster for teachers.
