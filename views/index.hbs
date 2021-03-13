@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>E21-DEMO1</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    {{#if error}}
+      <label class="error">
+        {{error}} <span onclick="closeError()">&times;</span>
+      </label>
+    {{/if}}
+    <h1>
+      NLR Google Classroom to eSchoolPlus grade transfer.
+    </h1>
+    <p>
+      Send grades to eSchoolPlus faster using the Google Classroom and eSchoolPlus APIs.
+    </p>
+    <button onclick="window.open('/auth', '_self')">
+      Authenticate
+    </button>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
