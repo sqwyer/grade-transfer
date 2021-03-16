@@ -9,14 +9,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 require('dotenv').config();
-
-const fs = require("fs");
-const fetch = require("node-fetch");
 const { google } = require("googleapis");
-
-const info = require("./info");
-const token = require("./token");
-const students = require("./students");
 
 function listCourses(auth, server) {
   const classroom = google.classroom({ version: "v1", auth });

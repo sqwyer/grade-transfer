@@ -11,9 +11,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 require('dotenv').config();
 
 const fs = require('fs');
-const { google } = require("googleapis");
-
-const info = require('./info');
 
 function getNewToken(client, server, callback) {
   
@@ -36,14 +33,8 @@ function getNewToken(client, server, callback) {
     }
     
     client.setCredentials(token);
-    fs.writeFile(info.token, JSON.stringify(token), err => {
-      if (err) {
-        server.res.redirect('/?error=File System error');
-        return console.error("Error writing to token storage", err);
-      }
-    });
-    
-    callback(client, server);
+
+    return callback(client, server);
   });
 }
 

@@ -28,23 +28,7 @@ const authorize = (callback, server) => {
     redirect_uris[0]
   );
 
-  fs.readFile(info.token, (err, token) => {
-    if (err) {
-      return getNewToken(client, server, callback);
-    }
-    
-    console.log(err, '\n', JSON.parse(token));
-    
-    client.setCredentials(JSON.parse(token));
-    callback(client, server);
-
-    fs.unlink(info.token, err => {
-      if(e) {
-        server.redirect('/?error=Unable to reset token data.');
-        console.error(err);
-      }
-    })
-  });
+  return getNewToken(client, server, callback);
 };
 
 module.exports = authorize;
