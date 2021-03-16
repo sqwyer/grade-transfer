@@ -11,6 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 require('dotenv').config();
 
 const fs = require('fs');
+const info = require('./info');
 
 function getNewToken(client, server, callback) {
   

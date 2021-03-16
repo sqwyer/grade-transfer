@@ -13,7 +13,6 @@ require('dotenv').config();
 const fs = require('fs');
 const { google } = require("googleapis");
 
-const info = require('./info');
 const {getNewToken} = require('./token');
 
 const authorize = (callback, server) => {

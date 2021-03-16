@@ -10,6 +10,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 require('dotenv').config();
 const { google } = require("googleapis");
+const students = require('./students');
 
 function listCourses(auth, server) {
   const classroom = google.classroom({ version: "v1", auth });
@@ -24,6 +25,10 @@ function listCourses(auth, server) {
 
     if (courses && courses.length) {
       let active = courses.filter(obj => obj.courseState == "ACTIVE");
+      
+      active.forEach(c => {
+        students.getStudents(c.id);
+      });
 
       server.res.render("dashboard", {
         message: `${active.length++} Course(s):`,
