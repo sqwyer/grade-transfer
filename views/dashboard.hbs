@@ -1,4 +1,28 @@
-{{message}}
-{{#each courses}}
-  <br />{{this.name}}
-{{/each}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style.css">
+  <title>Your Courses</title>
+</head>
+<body>
+  <h1>
+    Your Courses
+  </h1>
+  <div class="container">
+    {{#if message}}
+      <span class="message">{{message}}</span>
+    {{/if}}
+    <div class="courses">
+      {{#each courses}}
+        <div class="course">
+          <h2>{{this.name}}</h2>
+          <p>(x) students</p>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</body>
+</html>
