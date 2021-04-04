@@ -2,57 +2,112 @@
 
 * {
   box-sizing: border-box;
+  padding:0;
+  margin:0;
 }
 
 body {
   font-family: sans-serif;
   margin: 2em 1em;
   line-height: 1.5em;
+  color: #fff;
+  background:#0D0F12;
+}
+
+.box {
+  background: #151B21;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding:3%;
+  width: 27.5vw;
+  position:absolute;
+  border-radius:10px;
+}
+
+.box * {
+  margin-bottom:7.5%;
+}
+
+.box .btn {
+  margin-bottom: 0;
+}
+
+.courses {
+  display:block;
+  margin: 10vh auto;
+  display:block;
+  background: #151B21;
+  padding:3%;
+  width:55vw;
+  border-radius:10px;
+  color: #DEE3EA;
+}
+
+.box p {
+  color: #DEE3EA;
+  font-size: 90%;
+  margin-bottom: 9%;
+}
+
+a.btn {
+  padding:4.5%;
+  display:block;
+  border-radius:8px;
+  background: #252D37;
+  color: #FFFFFF;
+  font-weight:bold;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.05s;
+}
+
+a.btn:hover, .course:hover {
+  background: #34404d;
 }
 
 h1 {
-  font-style: italic;
-  color: #373fff;
+  color: #4058dd;
   max-width: calc(100% - 5rem);
   line-height: 1.1;
+  font-size: 150%;
+  font-weight:800;
 }
 
-form {
-  background-color: #eee;
-  display: grid;
-  grid-gap: 1em;
-  padding: 1em;
-  max-width: 40ch;
-}
-
-input {
-  border: 1px solid silver;
-  display: block;
-  font-size: 16px;
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 100%;
-}
-
-form button {
-  background-color: #bbbbf2;
-  border: 2px solid currentColor;
-  border-radius: .25em;
+.course {
+  padding:4%;
+  display:block;
+  border-radius:8px;
+  background: #252D37;
+  color: #FFFFFF;
+  font-weight:bold;
+  transition: 0.1s;
+  margin-top:2%;
+  margin-bottom:2%;
   cursor: pointer;
-  font-size: inherit;
-  line-height: 1.4em;
-  padding: 0.25em 1em;
-  max-width: 20ch;
 }
 
-form button:hover {
-  background-color: lavender;
+.course p {
+  margin-top:2%;
+  color: #DEE3EA;
+  font-weight: normal;
 }
 
-footer {
-  margin-top: 3em;
-  padding-top: 1.5em;
-  border-top: 1px solid lightgrey;
+.footer {
+  position: fixed;
+  height:10vh;
+  bottom:3vh;
+  right:6vw;
+}
+
+.footer img {
+  height:70%;
+  filter: opacity(0.1);
+  transition:0.1s;
+}
+
+.footer img:hover {
+  filter: opacity(0.2);
 }
 
 .error {

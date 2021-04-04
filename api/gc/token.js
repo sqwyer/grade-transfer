@@ -30,7 +30,7 @@ function getNewToken(client, server, callback) {
   client.getToken(code, (err, token) => {
     if (err) {
       server.res.redirect('/?error=Error retrieving access token');
-      return console.error("Error retrieving access token", err);
+      return console.error("Error retrieving access token");
     }
     
     client.setCredentials(token);

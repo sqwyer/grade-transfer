@@ -14,7 +14,7 @@ const auth = require('./auth');
 const token = require('./token');
 const courses = require('./courses');
 
-const init = (server) => {
+const init = async (server) => {
   return auth(courses, server);
 }
 
