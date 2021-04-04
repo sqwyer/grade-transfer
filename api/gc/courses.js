@@ -8,12 +8,13 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-require('dotenv').config();
+require("dotenv").config();
 const { google } = require("googleapis");
+
+console.log('??');
 
 function listCourses(auth, server) {
   const classroom = google.classroom({ version: "v1", auth });
-
   classroom.courses.list({ pageSize: 30 }, (err, res) => {
     if (err) {
       server.res.redirect("/?error=Google Classroom API error.");
@@ -21,23 +22,40 @@ function listCourses(auth, server) {
     }
 
     const courses = res.data.courses;
+    console.log('ran 1');
 
     if (courses && courses.length) {
+      console.log('ran 2');
       let active = courses.filter(obj => obj.courseState == "ACTIVE");
-      
-      active.forEach(c => {
-        classroom.courses.students.list({ courseId: c.id, pageSize: 2 }, (err, res) => {
-          if(err) {
-            console.error(err);
-          } else {
-            console.log(res.data.students);
-            // res.data.students.forEach(s => {
-            //   console.log(s.profile.name);
-            // });
+      console.log('ran 3');
+      active.forEach((c, index, arr) => {
+        console.log('ran 4')
+        let classroomNew = google.classroom({ version: "v1", auth });
+        if (classroomNew == undefined) {
+          console.log("undefined?!?!");
+          return;
+        } else {
+          console.log(classroomNew);
+          console.log("---");
+          console.log("");
+        }
 
-            active.indexOf(active.find(obj => obj.id === c.id)).students = res.data.students;
-          }
-        });
+        let options = { pageSize: 10 };
+        let roster = [];
+        let search = classroomNew.courses.students.list(c.id, options);
+
+        do {
+          if (search.students)
+            Array.prototype.push.apply(roster, search.students);
+          options.pageToken = search.nextPageToken;
+        } while (options.pageToken);
+
+        let newClass = c;
+        newClass.students = roster;
+
+        arr[index] = newClass;
+
+        // end of rosters
       });
 
       server.res.render("dashboard", {
