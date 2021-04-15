@@ -35,6 +35,8 @@ function getNewToken(client, server, callback) {
     
     client.setCredentials(token);
 
+    // server.req.session.client = client;
+
     return callback(client, server);
   });
 }

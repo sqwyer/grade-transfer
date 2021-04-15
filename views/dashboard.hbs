@@ -6,21 +6,33 @@
 </head>
 <body>
 
-
-    <div class="courses">
+  <div class="container">
+    <div class="box1">
       <h1>
-        Your Courses
+        Your Classes
       </h1>
       <br />
-      <p onclick="console.log('{{courses}}');console.log('e');">Hello, {{self.name}}. You are currently a teacher in {{courseAmt}} classrooms.</p>
-      <br />
+      <p onclick="console.log('{{courses}}');console.log('e');">You are currently a teacher in {{courseAmt}} classroom(s).</p>
+      <form action="/reset" method="POST" id="back">
+        <a class="btn blue" href="#" style="position:absolute;bottom:5vh;display:block;padding:0.5%;width:21%;" onclick="document.getElementById('back').submit();">Back</a>
+      </form>
+    </div>
+    <div class="box2" id="main">
       {{#each courses}}
         <div class="course">
-          <h2>{{this.name}}</h2>
-          <p>{{this.students.length}} students</p>
+          <form class="info" action="/getassignments" method="POST" onclick="this.submit();">
+            <input style="display:none" name="id" value="{{this.id}}" />
+            <input style="display:none" name="name" value="{{this.name}}" />
+            <h2>{{this.name}}</h2>
+            <p>{{this.students.length}} students</p>
+          </form>
         </div>
       {{/each}}
     </div>
+    <div class="box3">
+      
+    </div>
+  </div>
 
     <div class="footer">
       <a href="https://eastinitiative.org/">

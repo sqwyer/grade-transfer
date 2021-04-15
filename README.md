@@ -23,10 +23,11 @@ TOKEN_URI=
 AUTH_PROVIDER=
 CLIENT_SECRET=
 REDIRECT_URI=
+SESS_SECRET=
 ```
 
 ##### Fourth
-Once you have completed all of the previous steps, you should enable the Google Classroom API. To do this, visit the [Google Classroom API Quickstart Page](https://developers.google.com/classroom/quickstart/nodejs). Here, you should see a blue button titled, "Enable the Classroom API," Enable the API for a web server. Once given the option, download the credentials. Then, paste your `CLIENT_ID`, `PROJECT_ID`, `AUTH_URL`, `TOKEN_URI`, `AUTH_PROVIDER`, `CLIENT_SECRET`, and `REDIRECT_URI`. **Note** that you should just include the first `REDIRECT_URI` from the array provided in the credentials.
+Once you have completed all of the previous steps, you should enable the Google Classroom API. To do this, visit the [Google Classroom API Quickstart Page](https://developers.google.com/classroom/quickstart/nodejs). Here, you should see a blue button titled, "Enable the Classroom API," Enable the API for a web server. Once given the option, download the credentials. Then, paste your `CLIENT_ID`, `PROJECT_ID`, `AUTH_URL`, `TOKEN_URI`, `AUTH_PROVIDER`, `CLIENT_SECRET`, and `REDIRECT_URI`. **Note** that you should just include the first `REDIRECT_URI` from the array provided in the credentials. `SESS_SECRET` can be any value you want, this is the session secret for Express-Session.
 
 **Extra:** If you want to host the project, you may need to use a service like [Glitch](https://glitch.com). This will allow you to easier develop and use redirects/auth links.
 

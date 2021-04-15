@@ -17,6 +17,9 @@ function listCourses(auth, server) {
   }
 
   const classroom = google.classroom({ version: "v1", auth });
+
+  server.req.session.classroom = classroom;
+
   classroom.courses.list({ pageSize: 30 }, async (err, res) => {
     if (err) {
       server.res.redirect("/?error=Google Classroom API error.");
@@ -32,17 +35,14 @@ function listCourses(auth, server) {
         let final = [];
 
         let trigger = () => {
-          console.log('triggered!');
-
-          server.res.render("dashboard", {
+          let data = {
             courses: final,
             courseAmt: active.length
-          });
+          }
 
-          sendBack({
-            courses: final,
-            courseAmt: active.length
-          })
+          server.req.session.data = data;
+          server.res.redirect('/dashboard');
+          sendBack(data);
 
           return final;
         }

@@ -59,11 +59,20 @@ a.btn {
   font-weight:bold;
   text-decoration: none;
   text-align: center;
-  transition: 0.05s;
+  transition: 0.1s;
 }
 
-a.btn:hover, .course:hover {
+a.btn:hover {
   background: #34404d;
+}
+
+a.btn.blue {
+  background: #4058dd;
+  transition:0.1s;
+}
+
+a.btn.blue:hover {
+  background: #4554aa;
 }
 
 h1 {
@@ -74,11 +83,15 @@ h1 {
   font-weight:800;
 }
 
+.course:first-of-type {
+  margin-top:0;
+}
+
 .course {
   padding:4%;
   display:block;
   border-radius:8px;
-  background: #252D37;
+  background: #151B21;
   color: #FFFFFF;
   font-weight:bold;
   transition: 0.1s;
@@ -89,7 +102,7 @@ h1 {
 
 .course p {
   margin-top:2%;
-  color: #DEE3EA;
+  color: #5D7290;
   font-weight: normal;
 }
 
@@ -127,4 +140,23 @@ h1 {
   font-weight:bold;
   border-radius:10px;
   margin-right: 5%;
+}
+
+.container {
+  width:100%;
+  margin:0;
+  padding:0;
+}
+
+.box1, .box2, .box3{
+  width: 25%;
+  height: 50px;
+  display: table-cell;
+  vertical-align: top;
+  padding:2%;
+
+}
+
+.box2{
+  width: 50%;
 }

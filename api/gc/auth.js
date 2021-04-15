@@ -16,18 +16,23 @@ const { google } = require("googleapis");
 const {getNewToken} = require('./token');
 
 const authorize = (callback, server) => {
-  
-  const client_secret = process.env.CLIENT_SECRET;
-  const client_id = process.env.CLIENT_ID;
-  const redirect_uris = [process.env.REDIRECT_URI];
 
-  const client = new google.auth.OAuth2(
-    client_id,
-    client_secret,
-    redirect_uris[0]
-  );
+  if(server.req.session.data) {
+    server.res.redirect('/dashboard');
+  } else {
 
-  return getNewToken(client, server, callback);
+    const client_secret = process.env.CLIENT_SECRET;
+    const client_id = process.env.CLIENT_ID;
+    const redirect_uris = [process.env.REDIRECT_URI];
+
+    const client = new google.auth.OAuth2(
+      client_id,
+      client_secret,
+      redirect_uris[0]
+    );
+
+    return getNewToken(client, server, callback);
+  }
 };
 
 module.exports = authorize;
