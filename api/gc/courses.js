@@ -11,72 +11,72 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 require("dotenv").config();
 const { google } = require("googleapis");
 
-console.log('??');
-
 function listCourses(auth, server) {
+  let sendBack = data => {
+    return data;
+  }
+
   const classroom = google.classroom({ version: "v1", auth });
-  classroom.courses.list({ pageSize: 30 }, (err, res) => {
+
+  server.req.session.classroom = classroom;
+
+  classroom.courses.list({ pageSize: 30 }, async (err, res) => {
     if (err) {
       server.res.redirect("/?error=Google Classroom API error.");
-      return console.error("The API returned an error: " + err);
+      return console.error("The API returned an error.");
     }
 
     const courses = res.data.courses;
-    console.log('ran 1');
 
     if (courses && courses.length) {
-      console.log('ran 2');
       let active = courses.filter(obj => obj.courseState == "ACTIVE");
-      console.log('ran 3');
-      active.forEach((c, index, arr) => {
-        console.log('ran 4')
-        let classroomNew = google.classroom({ version: "v1", auth });
-        if (classroomNew == undefined) {
-          console.log("undefined?!?!");
-          return;
-        } else {
-          console.log(classroomNew);
-          console.log("---");
-          console.log("");
+
+      let roster = async (classes) => {
+        let final = [];
+
+        let trigger = () => {
+          let data = {
+            courses: final,
+            courseAmt: active.length
+          }
+
+          server.req.session.data = data;
+          server.res.redirect('/dashboard');
+          sendBack(data);
+
+          return final;
         }
 
-        let options = { pageSize: 10 };
-        let roster = [];
-        let search = classroomNew.courses.students.list(c.id, options);
+        classes.forEach(async self => {
+          let options = { pageSize: 10, courseId: self.id };
+          let roster = [];
+  
+          let search = await classroom.courses.students.list(options);
+  
+          do {
+            if (search.data.students) Array.prototype.push.apply(roster, search.data.students);
+            options.pageToken = search.data.nextPageToken;
+          } while (options.pageToken);
+          
+          self.students = roster;
 
-        do {
-          if (search.students)
-            Array.prototype.push.apply(roster, search.students);
-          options.pageToken = search.nextPageToken;
-        } while (options.pageToken);
+          final.push(self);
 
-        let newClass = c;
-        newClass.students = roster;
+          if(final.length == classes.length) trigger();
+        });
+      }
 
-        arr[index] = newClass;
-
-        // end of rosters
-      });
-
-      server.res.render("dashboard", {
-        message: `${active.length++} Course(s):`,
-        courses: active
-      });
-
-      return {
-        message: `${active.length++} course(s)`,
-        courses: active
-      };
+      roster(active);
     } else {
       server.res.render("dashboard", {
-        message: "No classrooms were found.",
-        courses: []
+        courses: [],
+        courseAmt: 0
       });
 
-      return {
-        message: "No classrooms were found.",
-        courses: []
-      };
+      sendBack( {
+        courses: [],
+        courseAmt: 0
+      });
     }
   });
 }

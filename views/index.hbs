@@ -10,15 +10,23 @@
         {{error}} <span onclick="closeError()">&times;</span>
       </label>
     {{/if}}
-    <h1>
-      NLR Google Classroom to eSchoolPlus grade transfer.
-    </h1>
-    <p>
-      Send grades to eSchoolPlus faster using the Google Classroom and eSchoolPlus APIs.
-    </p>
-    <button onclick="window.open('/auth', '_self')">
-      Authenticate
-    </button>
+    <div class="box">
+      <h1>
+        Grade Transfer
+      </h1>
+      <p>
+        Send grades to eSchoolPlus faster using the Google Classroom and eSchoolPlus APIs.
+      </p>
+      <a onclick="window.open('/auth', '_self')" href="#" class="btn">
+        Authenticate
+      </a>
+    </div>
+    <div class="footer">
+      <a href="https://eastinitiative.org/">
+        <img src="/static/east.png">
+      </a>
+    </div>
+
     <script src="/static/script.js"></script>
   </body>
 </html>

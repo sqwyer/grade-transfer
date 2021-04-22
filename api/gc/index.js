@@ -13,9 +13,10 @@ require('dotenv').config();
 const auth = require('./auth');
 const token = require('./token');
 const courses = require('./courses');
+const assignments = require('./assignments');
 
-const init = (server) => {
+const init = async (server) => {
   return auth(courses, server);
 }
 
-module.exports = { auth, token, courses, init };
+module.exports = { auth, token, courses, init, assignments };

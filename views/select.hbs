@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/static/style.css">
+  <title>Your Courses</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="box1">
+      <h1>
+        {{body.name}}'s Assignments
+      </h1>
+      <br />
+      <p>This course has {{assignmentAmt}} assignment(s).</p>
+      <form action="/dashboard" method="GET" id="back">
+        <a class="btn blue" href="#" style="position:absolute;bottom:5vh;display:block;padding:0.5%;width:21%;" onclick="document.getElementById('back').submit();">Back</a>
+      </form>
+    </div>
+    <div class="box2" id="main">
+      {{#each assignments}}
+        <div class="course">
+          <div class="info">
+            <h2>{{this.name}}</h2>
+            <p>N/A</p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    <div class="box3">
+      [...]
+    </div>
+  </div>
+
+    <div class="footer">
+      <a href="https://eastinitiative.org/">
+        <img src="/static/east.png">
+      </a>
+    </div>
+</body>
+</html>
