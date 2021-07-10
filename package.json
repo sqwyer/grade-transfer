@@ -1,0 +1,16 @@
+{
+  "name": "grade-transfer",
+  "version": "0.0.1",
+  "description": "An application for transfering grades from Google Classroom to eSchoolPlus easily.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "14.16.1"
+  },
+  "keywords": [],
+  "author": "Sawyer Bivens",
+  "license": "MIT"
+}
