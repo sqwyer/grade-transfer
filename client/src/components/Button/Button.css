@@ -17,10 +17,10 @@
 }
 
 .Button:not(.Void):hover {
-  background:#33ADF1;
+  background:#4A65F1;
 }
 
 .Button.Void:hover {
-  border: 4px solid #33ADF1;
-  color:#33ADF1;
+  border: 4px solid #4A65F1;
+  color:#4A65F1;
 }

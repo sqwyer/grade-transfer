@@ -26,4 +26,14 @@ a {
 .links a {
   display: inline-block;
   margin-right:5%;
+  transition:0.2s;
+  font-weight:bold;
+}
+
+.links a:not(:last-of-type) {
+  margin-right:10%;
+}
+
+.links a:hover {
+  color:#C7C8CE;
 }

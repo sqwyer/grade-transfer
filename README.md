@@ -1,5 +1,9 @@
+<div style="text-align:center">
 # Grade Transfer
 An EAST project made to help teachers submit grades faster.
+<br />
+[[View Site](https://east-grade-transfer.herokuapp.com/)]
+</div>
 
 #### What does Grade Transfer do?
 Grade transfer is a tool that transfers pre-submitted grades from Google Classroom directly to eSchoolPlus. This saves unnecessary time spent reentering grades.
