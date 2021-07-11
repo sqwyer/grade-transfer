@@ -1,0 +1,26 @@
+.Button {
+  display: inline-block;
+  color: #fff;
+  background: #516CFC;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size:10pt;
+  padding: 1.5% 4% 1.5% 4%;
+  font-weight:800;
+  transition:0.2s;
+}
+
+.Button.Void {
+  border: 4px solid #516CFC;
+  background:transparent;
+  color: #516CFC;
+}
+
+.Button:not(.Void):hover {
+  background:#33ADF1;
+}
+
+.Button.Void:hover {
+  border: 4px solid #33ADF1;
+  color:#33ADF1;
+}

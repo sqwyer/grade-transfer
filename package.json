@@ -4,7 +4,7 @@
   "description": "An application for transfering grades from Google Classroom to eSchoolPlus easily.",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "node server/server.js",
     "build": "cd client && npm install && npm run build"
   },
   "engines": {
@@ -12,5 +12,8 @@
   },
   "keywords": [],
   "author": "Sawyer Bivens",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.30.0"
+  }
 }
