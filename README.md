@@ -1,8 +1,8 @@
 <div style="text-align:center">
-# Grade Transfer
-An EAST project made to help teachers submit grades faster.
+<h1>Grade Transfer</h1>
+<p>An EAST project made to help teachers submit grades faster.</p>
 <br />
-[[View Site](https://east-grade-transfer.herokuapp.com/)]
+<a href="https://east-grade-transfer.herokuapp.com/">[View Site]</a>
 </div>
 
 #### What does Grade Transfer do?
