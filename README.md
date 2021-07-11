@@ -1,4 +1,4 @@
-<div style="text-align:center">
+<div align="center">
 <h1>Grade Transfer</h1>
 <p>An EAST project made to help teachers submit grades faster.</p>
 <br />
