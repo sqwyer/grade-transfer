@@ -1,0 +1,19 @@
+{
+  "name": "grade_transfer",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "scripts": {
+    "dev": "nodemon server/server.js"
+  },
+  "keywords": [],
+  "author": "EAST @ NLRHS",
+  "license": "MIT"
+}
