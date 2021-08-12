@@ -1,4 +1,4 @@
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 const path = require('path');
 
@@ -11,7 +11,6 @@ const gci = new GCI();
 
 app.use('/styles', express.static(path.join(__dirname, '/../client/styles')));
 
-// app.set('trust proxy', 1);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, '/../client'));
 

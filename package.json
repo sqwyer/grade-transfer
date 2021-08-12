@@ -18,6 +18,6 @@
     "start": "node server/server"
   },
   "keywords": [],
-  "author": "EAST @ NLRHS",
+  "author": "Grade Transfer",
   "license": "MIT"
 }
