@@ -14,7 +14,8 @@
     "nodemon": "^2.0.12"
   },
   "scripts": {
-    "dev": "nodemon server/server.js"
+    "dev": "nodemon server/server.js",
+    "start": "node server/server"
   },
   "keywords": [],
   "author": "EAST @ NLRHS",
