@@ -1,0 +1,27 @@
+.list-item {
+    display: block;
+    margin-top:3vh;
+    background: #ffffff0c;
+    padding:5% 10%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.list-item p.title {
+    color: #516CFC;
+    font-weight: 800;
+    font-size: 140%;
+}
+
+.list-item p.sub {
+    margin-top:0.5vh;
+}
+
+.list-item p {
+    margin:0;
+}
+
+.list-item:hover {
+    background: #ffffff11;
+}
