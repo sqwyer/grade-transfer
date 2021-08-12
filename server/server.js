@@ -21,6 +21,8 @@ app.use(session({
     cookie: { secure: false }
 }));
 
+app.use('/api', require('./api/api'));
+
 app.get('/', (req, res) => {
     res.render('index');
 });
