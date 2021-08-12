@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/help.css">
+
+    <script src="https://kit.fontawesome.com/550c1118d8.js" crossorigin="anonymous"></script>
+
+    <title>Grade Transfer</title>
+</head>
+<body>
+    <div class="box">
+        <h1>Grade Transfer Help Center</h1>
+        <p>Find answers to your questions or learn how to use Grade Transfer!</p>
+
+        <div class="help-list">
+            <div class="help-item">
+                <p class="closed-icon"><i class="fas fa-caret-down"></i></p>
+                <p class="opened-icon"><i class="fas fa-caret-up"></i></p>
+                <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <div class="answer">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, cupiditate quia voluptatum sequi alias sint consectetur, quos necessitatibus assumenda culpa odit quas, autem saepe omnis eligendi! Libero dolores sit vitae.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="/help" style="float: left">Help Center</a>
+        <a href="mailto:570000826@nlrsd.org" style="float: right">Contact</a>
+    </div>
+
+    <script>
+        let elems = document.getElementsByClassName("help-item");
+        for(let i = 0; i < elems.length; i++) {
+            let e = elems[i];
+            e.addEventListener("click", () => {
+                e.classList.toggle("opened");
+            });
+        }
+    </script>
+</body>
+</html>

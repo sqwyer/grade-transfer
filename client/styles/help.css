@@ -1,0 +1,49 @@
+.closed-icon, .opened-icon {
+    color:#fff;
+    fill: #fff;
+}
+
+.help-item .opened-icon, .help-item .closed-icon {
+    float:right;
+}
+
+.help-item .opened-icon {
+    display: none;
+}
+
+.help-item .title {
+    max-width: 90%;
+    display: block;
+    cursor: pointer;
+    font-weight: 800;
+    color:#fff;
+    float: left;
+}
+
+.help-item {
+    display: block;
+    margin-top:3vh;
+    background: #ffffff0c;
+    padding:0% 5%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    overflow: auto;
+}
+
+.help-item.opened .closed-icon {
+    display: none;
+}
+
+.help-item.opened .opened-icon {
+    display: initial;
+}
+
+.help-item .answer {
+    display: none;
+    font-size:90%;
+}
+
+.help-item.opened .answer {
+    display: initial;
+}
