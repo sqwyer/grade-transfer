@@ -25,3 +25,7 @@
 .list-item:hover {
     background: #ffffff11;
 }
+
+.list-item.selected {
+    background: #ffffff18;
+}

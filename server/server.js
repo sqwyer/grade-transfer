@@ -10,6 +10,7 @@ const GCI = require('gci');
 const gci = new GCI();
 
 app.use('/styles', express.static(path.join(__dirname, '/../client/styles')));
+app.use('/static', express.static(path.join(__dirname, '/../client/static')));
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, '/../client'));
@@ -45,7 +46,7 @@ app.get('/auth', (req, res) => {
 
 app.get('/courses', (req, res) => {
     if(req.session.courses) {
-        res.render('list', {
+        res.render('courses', {
             list: req.session.courses,
             title: "Your courses.",
             description: `You are teaching in ${req.session.courses.length} active course(s).`
