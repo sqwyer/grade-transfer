@@ -6,7 +6,7 @@ const express = require('express');
 const session = require('express-session');
 const app = express();
 
-const GCI = require('gci');
+const GCI = require('gc.info');
 const gci = new GCI();
 
 app.use('/styles', express.static(path.join(__dirname, '/../client/styles')));

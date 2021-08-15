@@ -2,7 +2,7 @@ if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 const express = require('express');
 const router = express.Router();
-const GCI = require('gci');
+const GCI = require('gc.info');
 const gci = new GCI();
 
 router.get('/courses', (req, res) => {
