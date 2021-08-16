@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg"/>
+
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/courses.css">
+    <link rel="stylesheet" href="/styles/students.css">
+
+    <title>Grade Transfer</title>
+</head>
+<body>
+    <div class="box">
+        <h1>{{title}}</h1>
+        <p>{{description}} Click a student to select them, when you have selected all students whose grades you want to transfer.</p>
+        <a class="button" href="#">
+            Advance
+        </a>
+        <div class="extras">
+            <a href="#" style="float: left" onclick="selectAll()">Select All</a>
+            <a href="#" style="float: right" onclick="deselectAll()">Deselect All</a>
+        </div>
+        <br />
+        {{#each list}}
+            <div class="list-item" studentId="{{this.studentId}}">
+                <p class="title" style="font-size:120%">{{this.profile.name.fullName}}</p>
+                <p class="sub" style="font-size:80%">{{this.profile.emailAddress}}</p>
+            </div>
+        {{/each}}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+    <div class="footer">
+        <div class="content">
+            <a href="/help" style="float: left">Help Center</a>
+            <a href="mailto:570000826@nlrsd.org" style="float: right">Contact</a>
+        </div>
+    </div>
+    <script>
+        let ids = [];
+        let allIds = [];
+        let elems = document.getElementsByClassName("list-item");
+        for(let i = 0; i < elems.length; i++) {
+            let e = elems[i];
+            let id = e.getAttribute("studentId");
+            allIds.push(id);
+            e.addEventListener("click", () => {
+                if(e.classList.contains("selected")) {
+                    let index = ids.indexOf(id);
+                    if (index > -1) {
+                        ids.splice(index, 1);
+                    }
+                    e.classList.remove("selected");
+                } else {
+                   e.classList.add("selected");
+                   ids.push(id);
+                }
+            });
+        }
+
+        const selectAll = () => {
+            ids = allIds;
+            for(let i = 0; i < elems.length; i++) {
+                let e = elems[i];
+                e.classList.add("selected");
+            }
+        };
+        const deselectAll = () => {
+            ids = [];
+            for(let i = 0; i < elems.length; i++) {
+                let e = elems[i];
+                e.classList.remove("selected");
+            }
+        };
+    </script>
+</body>
+</html>

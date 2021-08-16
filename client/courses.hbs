@@ -14,11 +14,8 @@
 </head>
 <body>
     <div class="box">
-        <h1>Your courses.</h1>
+        <h1>{{title}}</h1>
         <p>{{description}}</p>
-        <a class="button" href="#">
-            Advance
-        </a>
         {{#each list}}
             <div class="list-item" courseId="{{this.id}}">
                 <p class="title">{{this.name}}</p>
@@ -27,26 +24,18 @@
         {{/each}}
     </div>
     <div class="footer">
-        <a href="/help" style="float: left">Help Center</a>
-        <a href="mailto:570000826@nlrsd.org" style="float: right">Contact</a>
+        <div class="content">
+            <a href="/help" style="float: left">Help Center</a>
+            <a href="mailto:570000826@nlrsd.org" style="float: right">Contact</a>
+        </div>
     </div>
     <script>
-        let ids = [];
         let elems = document.getElementsByClassName("list-item");
         for(let i = 0; i < elems.length; i++) {
             let e = elems[i];
             e.addEventListener("click", () => {
                 let id = e.getAttribute("courseId");
-                if(e.classList.contains("selected")) {
-                    let index = ids.indexOf(id);
-                    if (index > -1) {
-                        ids.splice(index, 1);
-                    }
-                    e.classList.remove("selected");
-                } else {
-                   e.classList.add("selected");
-                   ids.push(id);
-                }
+                window.open(`/students?courseId=${id}`, '_self');
             });
         }
     </script>

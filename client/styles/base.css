@@ -12,6 +12,11 @@ body, html {
   background: #0D0F12;
 }
 
+body {
+  display:table;
+  min-height: 100%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

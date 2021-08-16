@@ -54,6 +54,22 @@ app.get('/courses', (req, res) => {
     } else res.redirect('/');
 });
 
+app.get('/students', (req, res) => {
+    if(req.session.courses && req.query.courseId) {
+        let course = req.session.courses.find(obj => obj.id === req.query.courseId);
+        if(course) {
+            let description = `${course.name} has ${course.roster.length} active students.`;
+            if(course.roster.length == 0) description = `${course.name} does not have any students.`;
+            else if(course.roster.length == 1) description = `${course.name} has 1 student.`;
+            res.render('students', {
+                list: course.roster,
+                title: `${course.name} Students`,
+                description: description
+            });
+        } else res.redirect('/');
+    } else res.redirect('/');
+})
+
 app.listen(process.env.PORT || 3000, e => {
     if(e) throw e;
     console.log('Server running...');
