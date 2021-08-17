@@ -17,20 +17,28 @@
     <div class="box">
         <h1>{{title}}</h1>
         <p>{{description}}</p>
-        <a class="button" href="#">
-            Advance
-        </a>
-        <div class="extras">
-            <a href="#" style="float: left" onclick="selectAll()">Select All</a>
-            <a href="#" style="float: right" onclick="deselectAll()">Deselect All</a>
-        </div>
-        <br />
-        {{#each list}}
-            <div class="list-item" studentId="{{this.studentId}}">
-                <p class="title" style="font-size:120%">{{this.profile.name.fullName}}</p>
-                <p class="sub" style="font-size:80%">{{this.profile.emailAddress}}</p>
+        {{#if showExtras}}
+            <a class="button" href="#">
+                Advance
+            </a>
+        {{else}}
+            <a class="button" href="/courses">
+                Back
+            </a>
+        {{/if}}
+        {{#if showExtras}}
+            <div class="extras">
+                <a href="#" style="float: left" onclick="selectAll()">Select All</a>
+                <a href="#" style="float: right" onclick="deselectAll()">Deselect All</a>
             </div>
-        {{/each}}
+            <br />
+            {{#each list}}
+                <div class="list-item" studentId="{{this.studentId}}">
+                    <p class="title" style="font-size:120%">{{this.profile.name.fullName}}</p>
+                    <p class="sub" style="font-size:80%">{{this.profile.emailAddress}}</p>
+                </div>
+            {{/each}}
+        {{/if}}
         <br />
         <br />
         <br />
