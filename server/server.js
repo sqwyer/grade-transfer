@@ -58,9 +58,9 @@ app.get('/students', (req, res) => {
     if(req.session.courses && req.query.courseId) {
         let course = req.session.courses.find(obj => obj.id === req.query.courseId);
         if(course) {
-            let description = `${course.name} has ${course.roster.length} active students.`;
+            let description = `${course.name} has ${course.roster.length} active students. Click a student to select them, when you have selected all students whose grades you want to transfer.`;
             if(course.roster.length == 0) description = `${course.name} does not have any students.`;
-            else if(course.roster.length == 1) description = `${course.name} has 1 student.`;
+            else if(course.roster.length == 1) description = `${course.name} has 1 student. Click a student to select them, when you have selected all students whose grades you want to transfer.`;
             res.render('students', {
                 list: course.roster,
                 title: `${course.name} Students`,
